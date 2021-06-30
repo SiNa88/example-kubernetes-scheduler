@@ -7,6 +7,11 @@ import json
 from kubernetes import client, config, watch
 from sdcclient import SdcClient
 
+
+from prometheus_api_client import PrometheusConnect
+prom = PrometheusConnect()
+
+
 config.load_incluster_config()
 v1 = client.CoreV1Api()
 sdclient = SdcClient(open("/etc/sysdigtoken/token.txt","r").read().rstrip())
